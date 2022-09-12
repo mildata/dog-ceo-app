@@ -1,9 +1,12 @@
-import './App.css';
+import "./App.module.scss";
+import Content from "./components/Content";
+import Header from "./components/Header";
 
 function App() {
   return (
     <>
-    <div></div>
+      <Header />
+      <Content />
     </>
   );
 }
