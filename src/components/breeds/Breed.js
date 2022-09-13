@@ -1,7 +1,11 @@
-const Breed = () => {
+import { Link } from "react-router-dom";
+
+const Breed = ({ breed }) => {
   return (
     <>
-      <h4> Breed Component</h4>
+      <li>
+        <Link to={`breed/${breed}`} >{breed}</Link>
+      </li>
     </>
   );
 };
