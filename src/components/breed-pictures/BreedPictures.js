@@ -1,7 +1,10 @@
+import { useParams } from "react-router";
+
 const BreedPictures = () => {
+  const { breed } = useParams();
   return (
     <>
-      <h3>Breed Pictures Component</h3>
+      <h3>Breed name: {breed}</h3>
     </>
   );
 };
