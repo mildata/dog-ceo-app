@@ -7,7 +7,7 @@ function App() {
   return (
     <FavoriteImagesProvider>
       <Header />
-      <Content />
+      {/* <Content /> */}
     </FavoriteImagesProvider>
   );
 }

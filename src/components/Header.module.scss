@@ -1,0 +1,33 @@
+@use '../styles/abstracts/' as *;
+
+.logo {
+    width: 10rem
+}
+
+.nav {
+    display: flex;
+    height: 6rem;
+    padding: 25px;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 4px 10px #88888878;
+}
+
+.nav-items {
+    display: flex;
+}
+
+.nav-item {
+    list-style: none;
+    height: 2rem;
+    width: 2rem;
+}
+
+.nav-item img{
+    margin: auto;
+    width: 1.75rem;
+}
+
+.nav-items a:first-child{
+    margin-right: .5rem;
+}
