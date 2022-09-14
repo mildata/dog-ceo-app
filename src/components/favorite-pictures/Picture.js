@@ -1,7 +1,7 @@
-const Picture = () => {
+const Picture = ({url}) => {
   return (
     <>
-      <h4> Picture Component</h4>
+     <img src={url} alt="" width="100px"/>
     </>
   );
 };

@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import FavoriteImagesContext from "../../store/favorite-images-context";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { fetchBreedImages } from "../../services/services";
@@ -6,8 +7,29 @@ import BreedPicture from "./BreedPicture";
 
 const BreedPictures = () => {
   const { breed } = useParams();
+
+  //global state management
+  const favImgContext = useContext(FavoriteImagesContext);
+
+  // add image to favorites
+  const addFavImgHandler = (url) => {
+    favImgContext.addImage({
+      url: url,
+      breed: breed,
+    });
+  };
+
+  //remove image from favorites
+  const removeFavImgHandler = (url) => {
+    favImgContext.removeImage({
+      url: url,
+    });
+  };
+
+  //internal state management
   const [imgUrls, setImgUrls] = useState([]);
   const [breedFound, setBreedFound] = useState(undefined);
+
   const backToAllBreedsLink = (
     <Link to="/">Check out the breed list to find all breeds</Link>
   );
@@ -42,7 +64,21 @@ const BreedPictures = () => {
             </div>
           )}
           {imgUrls.map((url, i) => {
-            return <BreedPicture url={url} key={i} />;
+            const favorited =
+              favImgContext.favoriteImages.findIndex((el) => el.url === url) ===
+              -1
+                ? false
+                : true;
+            return (
+              <div key={url}>
+                <BreedPicture
+                  url={url}
+                  add={addFavImgHandler}
+                  remove={removeFavImgHandler}
+                  showRemoveButton={favorited}
+                />
+              </div>
+            );
           })}
         </div>
       )}
