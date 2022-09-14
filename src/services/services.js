@@ -1,7 +1,4 @@
-const URLS = {
-  allBreeds: "https://dog.ceo/api/breeds/list/all",
-  breedImages: "https://dog.ceo/api/breed/name/images",
-};
+import { URLS } from "../models/constants";
 
 export async function fetchAllBreeds() {
   const response = await fetch(URLS.allBreeds);

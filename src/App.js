@@ -1,15 +1,14 @@
-import { Route, Routes } from "react-router";
 import "./App.module.scss";
 import Content from "./components/Content";
 import Header from "./components/Header";
-import BreedsListPage from "./pages/BreedsListPage";
+import FavoriteImagesProvider from "./store/FavoriteImagesProvider";
 
 function App() {
   return (
-    <>
+    <FavoriteImagesProvider>
       <Header />
       <Content />
-    </>
+    </FavoriteImagesProvider>
   );
 }
 
