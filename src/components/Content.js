@@ -16,7 +16,7 @@ const Content = (props) => {
           path="/"
           element={
             <BreedsListPage>
-              <BreedsList />
+              {/* <BreedsList /> */}
             </BreedsListPage>
           }
         />

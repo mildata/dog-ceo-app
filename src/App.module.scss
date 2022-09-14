@@ -34,7 +34,7 @@ body {
   grid-template-columns: 1fr 13fr 1fr;
   display: grid;
   grid-template-areas:
-    "side-left header side-right"
+    "header header header"
     "sidebar-left content sidebar-right";
 
   @include mq(md) {
@@ -51,7 +51,7 @@ body {
 }
 
 .header {
-  grid-area: 1/2/2/4;
+  grid-area: header;
 }
 
 .content {
