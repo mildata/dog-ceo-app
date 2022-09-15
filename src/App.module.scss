@@ -38,15 +38,15 @@ body {
     "sidebar-left content sidebar-right";
 
   @include mq(md) {
-    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-columns: 1fr 7fr 1fr;
   }
 
   @include mq(lg) {
-    grid-template-columns: 2fr 6fr 2fr;
+    grid-template-columns: 1fr 10fr 1fr;
   }
 
   @include mq(xl) {
-    grid-template-columns: 3fr 5fr 3fr;
+    grid-template-columns: 2fr 5fr 2fr;
   }
 }
 
@@ -58,7 +58,5 @@ body {
   grid-area: content;
   display: flex;
   flex-direction: column;
-  grid-row-gap: 3rem;
   margin-top: 2rem;
-  padding-bottom: 3rem;
 }

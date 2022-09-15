@@ -1,0 +1,17 @@
+@use '../../styles/abstracts/' as *;
+
+.list-item{
+    & a {
+        font-size: 1.3rem;
+        color: $brown;
+        text-transform: capitalize;
+    }
+    & a:active {
+        color: inherit;
+    }
+    & a:hover {
+        color: inherit;
+        opacity: .75;
+        transition: .25s;
+    }
+}
