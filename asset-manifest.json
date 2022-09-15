@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/dog-ceo-app/static/css/main.708a0733.css",
+    "main.js": "/dog-ceo-app/static/js/main.009015bb.js",
+    "static/js/787.c120f754.chunk.js": "/dog-ceo-app/static/js/787.c120f754.chunk.js",
+    "static/media/heart.png": "/dog-ceo-app/static/media/heart.068a8c5a430d6a2a1c32.png",
+    "static/media/heart-inactive.png": "/dog-ceo-app/static/media/heart-inactive.92cfd86d4ece1a42831c.png",
+    "static/media/home.png": "/dog-ceo-app/static/media/home.3947af3dee5c15ae274c.png",
+    "static/media/heart-active.png": "/dog-ceo-app/static/media/heart-active.f148e705df14df6564e0.png",
+    "static/media/logo.png": "/dog-ceo-app/static/media/logo.a18485cdbcc815a559b5.png",
+    "index.html": "/dog-ceo-app/index.html",
+    "main.708a0733.css.map": "/dog-ceo-app/static/css/main.708a0733.css.map",
+    "main.009015bb.js.map": "/dog-ceo-app/static/js/main.009015bb.js.map",
+    "787.c120f754.chunk.js.map": "/dog-ceo-app/static/js/787.c120f754.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.708a0733.css",
+    "static/js/main.009015bb.js"
+  ]
+}
