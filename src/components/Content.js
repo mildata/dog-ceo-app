@@ -10,7 +10,6 @@ import FavoritePictures from "./favorite-pictures/FavoritePictures";
 const Content = (props) => {
   return (
     <>
-      <h1>Content</h1>
       <Routes>
         <Route
           path="/"

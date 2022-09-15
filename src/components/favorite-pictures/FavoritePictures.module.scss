@@ -1,0 +1,33 @@
+@use '../../styles/abstracts/' as *;
+
+.heading1 {
+    text-align: center;
+    font-size: 2rem;
+    text-transform: capitalize;
+    padding-bottom: 1rem;
+}
+.heading2 {
+    text-align: center;
+    font-size: 1.75rem;
+    text-transform: capitalize;
+    padding-bottom: 1rem;
+}
+
+.wrapper{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 1fr;
+    row-gap: 2rem; 
+    @include mq(md) {
+        grid-template-columns: 1fr 1fr;
+        column-gap: 2rem;
+    }
+  
+    @include mq(lg) {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  
+    @include mq(xl) {
+        grid-template-columns: 1fr 1fr 1fr 1fr; 
+    } 
+}

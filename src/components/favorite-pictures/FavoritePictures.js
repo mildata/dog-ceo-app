@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import styles from "./FavoritePictures.module.scss";
 import FavoriteImagesContext from "../../store/favorite-images-context";
 import BreedPicture from "../breed-pictures/BreedPicture";
 import Filter from "./Filter";
@@ -20,29 +21,30 @@ const FavoritePictures = () => {
 
   const filterSelectedBreed = (breedName) => {
     setSelectedBreed(breedName);
-    console.log(breedName);
   };
 
   return (
     <>
+      <h1 className={styles.heading1}> Your Favorite Pictures </h1>
       <Filter onSelected={filterSelectedBreed} />
-      <h3> Your Favorite Pictures </h3>
-      {hasItems &&
-        imgContext.favoriteImages.map((item) => {
-          return (
-            (selectedBreed === item.breed ||
-              selectedBreed === "All breeds") && (
-              <div key={item.url}>
-                <h3>{item.breed}</h3>
-                <BreedPicture
-                  url={item.url}
-                  remove={removeFavImgHandler}
-                  showRemoveButton={true}
-                />
-              </div>
-            )
-          );
-        })}
+      <div className={styles.wrapper}>
+        {hasItems &&
+          imgContext.favoriteImages.map((item) => {
+            return (
+              (selectedBreed === item.breed ||
+                selectedBreed === "All breeds") && (
+                <div key={item.url}>
+                  <BreedPicture
+                    url={item.url}
+                    remove={removeFavImgHandler}
+                    showRemoveButton={true}
+                  />
+                  <h2 className={styles.heading2}>{item.breed}</h2>
+                </div>
+              )
+            );
+          })}
+      </div>
     </>
   );
 };
