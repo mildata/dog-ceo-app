@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import { vars } from "../../models/constants";
 import styles from "./FavoritePictures.module.scss";
 import FavoriteImagesContext from "../../store/favorite-images-context";
 import BreedPicture from "../breed-pictures/BreedPicture";
@@ -17,7 +18,7 @@ const FavoritePictures = () => {
   };
 
   //component state
-  const [selectedBreed, setSelectedBreed] = useState("All breeds");
+  const [selectedBreed, setSelectedBreed] = useState(vars.allBreeds);
 
   const filterSelectedBreed = (breedName) => {
     setSelectedBreed(breedName);
@@ -32,7 +33,7 @@ const FavoritePictures = () => {
           imgContext.favoriteImages.map((item) => {
             return (
               (selectedBreed === item.breed ||
-                selectedBreed === "All breeds") && (
+                selectedBreed === vars.allBreeds) && (
                 <div key={item.url}>
                   <BreedPicture
                     url={item.url}
