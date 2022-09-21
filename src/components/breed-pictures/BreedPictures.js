@@ -29,22 +29,28 @@ const BreedPictures = () => {
 
   //internal state management
   const [imgUrls, setImgUrls] = useState([]);
+
+  // initially set to undefined, to help UI distinguish between initial and updated state
   const [breedFound, setBreedFound] = useState(undefined);
 
   const backToAllBreedsLink = (
     <Link to="/">Check out the breed list to find all breeds</Link>
   );
 
+  // fetch breed images from an API
   useEffect(() => {
-    fetchBreedImages(breed)
-      .then((value) => {
-        setImgUrls(value.message);
+    const getBreedImages = async () => {
+      const response = await fetchBreedImages(breed);
+      if (response) {
         setBreedFound(true);
-      })
-      .catch((err) => {
+        setImgUrls(response.message);
+      } else {
         setBreedFound(false);
-      });
+      }
+    };
+    getBreedImages();
   }, []);
+
 
   return (
     <>

@@ -5,4 +5,5 @@ export const URLS = {
 
 export const vars = {
   allBreeds: "All breeds",
+  noDataToShow: "Unable to show any data. Refresh the page or try again later."
 };
