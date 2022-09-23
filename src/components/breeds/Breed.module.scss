@@ -1,17 +1,97 @@
 @use '../../styles/abstracts/' as *;
 
-.list-item{
+.list-item {
+    list-style-type: none;
+
     & a {
-        font-size: 1.3rem;
-        color: $brown;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-decoration: none;
+        color: unset;
         text-transform: capitalize;
-    }
-    & a:active {
-        color: inherit;
-    }
-    & a:hover {
-        color: inherit;
-        opacity: .75;
-        transition: .25s;
+        font-size: .75rem;
+
+        &:hover {
+            & .img-wrap {
+                transform: translateY(.35rem);
+                transition: .45s;
+
+                & img {
+                    filter: brightness(80%);
+                }
+            }
+
+            & .link {
+                transform: translateY(-4.5rem);
+                transition: .35s;
+                color:$white;
+                font-size: 1.25rem;
+            }
+        }   
+
+        &:active {
+            & .link {
+                color: $white;
+            }
+        }
+
+        @include mq(md) {
+            flex-direction: column;
+        }
+
+        & .img-wrap {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1/1;
+            transition: .2s;
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            & img {
+                position: absolute;
+                top: 0;
+                width: 35%;
+                object-fit: cover;
+                border-radius: 50%;
+                aspect-ratio: 1/1;
+                transition: .45s;
+                box-shadow: 2px 2px 6px 1px $shadow;
+
+                @include mq(md) {
+                    width: 100%;
+                }
+            }
+
+            & .overlay {
+                position: absolute;
+                top: 0;
+                width: 100%;
+                aspect-ratio: 1/1;
+                border-radius: 50%;
+                transition: 2s;
+                background: linear-gradient(152deg, rgb(210 173 173 / 10%) 60%, rgb(0 0 0) 100%);
+            }
+
+            & .link {
+                font-family: $roboto;
+                transition: .2s;
+            }
+
+            & .link:hover {
+                transition: .25s;
+            }
+        }
+
+        & .link-wrap {
+            height: 2rem;
+            display: flex;
+            align-items: center;
+        }
     }
 }

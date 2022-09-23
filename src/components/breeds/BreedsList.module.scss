@@ -1,16 +1,33 @@
+@use '../../styles/abstracts/' as *;
+
 .heading1 {
     text-align: center;
     font-size: 2rem;
-    padding-bottom: 1rem;
+    text-transform: uppercase;
 }
+
 .heading2 {
     text-align: center;
     font-size: 1.5rem;
 }
 
 .list {
-    text-align: center;
-    list-style-type: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 2.5rem;
+    row-gap: 2.5rem;
+    margin: 2.5rem 0 0 0;
     padding: 0;
-    margin: 0;
+
+    @include mq(md) {
+        grid-template-columns: repeat(4, 1fr);      
+    }
+
+    @include mq(lg) {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    @include mq(xl) {
+        grid-template-columns: repeat(6, 1fr);
+    }
 }

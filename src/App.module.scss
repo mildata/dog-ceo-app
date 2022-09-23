@@ -21,42 +21,43 @@ h3,
 h4,
 h5,
 h6{
-    font-family: $inter;
+  font-family: $inter;
 }
 
 body {
   background: $white;
   color: $brown;
-
 }
 
 .container {
-  grid-template-columns: 1fr 13fr 1fr;
   display: grid;
-  grid-template-areas:
-    "header header header"
-    "sidebar-left content sidebar-right";
 
-  @include mq(md) {
-    grid-template-columns: 1fr 7fr 1fr;
+  & .header-wrap,
+  .content-wrap {
+    display: grid;
+    grid-template-columns: 1fr 13fr 1fr;
+
+    @include mq(md) {
+      grid-template-columns: 1fr 7fr 1fr;
+    }
   }
 
-  @include mq(lg) {
-    grid-template-columns: 1fr 10fr 1fr;
+  & .header-wrap {
+    grid-template-areas: "sidebar-left header sidebar-right";
+    box-shadow: 0px 4px 10px $shadow-light;
+    z-index: 1;
+    background-color: $white;
   }
 
-  @include mq(xl) {
-    grid-template-columns: 2fr 5fr 2fr;
+  & .content-wrap {
+    grid-template-areas: "sidebar-left content sidebar-right";
+    background-color: $background;
+
+    .content {
+      grid-area: content;
+      display: flex;
+      flex-direction: column;
+      margin-top: 2rem;
+    }
   }
-}
-
-.header {
-  grid-area: header;
-}
-
-.content {
-  grid-area: content;
-  display: flex;
-  flex-direction: column;
-  margin-top: 2rem;
 }

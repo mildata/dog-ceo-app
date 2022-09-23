@@ -1,6 +1,7 @@
 export const URLS = {
   allBreeds: "https://dog.ceo/api/breeds/list/all",
   breedImages: "https://dog.ceo/api/breed/name/images",
+  randomImage: "https://dog.ceo/api/breed/name/images/random",
 };
 
 export const vars = {
