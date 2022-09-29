@@ -7,12 +7,16 @@ function App() {
   return (
     <FavoriteImagesProvider>
       <div className={styles.container}>
-        <header className={styles.header}>
-          <Header />
-        </header>
-        <main className={styles.content}>
-          <Content />
-        </main>
+        <div className={styles["header-wrap"]}> 
+          
+            <Header />
+          
+        </div>
+        <div className={styles["content-wrap"]}> 
+          <main className={styles.content}>
+            <Content />
+          </main>
+        </div>
       </div>
     </FavoriteImagesProvider>
   );

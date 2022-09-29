@@ -26,3 +26,17 @@ export async function fetchBreedImages(breedName) {
     console.error(`An error has occured in fetchBreedImages service: ${error}`);
   }
 }
+
+export async function fetchRandomBreedImage(breedName) {
+  const url = URLS.randomImage.replace("name", breedName);
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP error: ${response.status}`);
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(`An error has occured in fetchBreedImages service: ${error}`);
+  }
+}
