@@ -5,7 +5,7 @@ import styles from "./BreedsList.module.scss";
 import Breed from "./Breed";
 
 const BreedsList = () => {
-  const [allBreeds, setAllBreeds] = useState([]);
+  const [allBreeds, setAllBreeds] = useState<string[]>([]);
   const [showList, setShowList] = useState(false);
 
   // fetch all breeds from an API

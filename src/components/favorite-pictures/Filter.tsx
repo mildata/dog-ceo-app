@@ -1,36 +1,40 @@
 import { useContext, useState } from "react";
-import styles from "./Filter.modules.scss";
 import FavoriteImagesContext from "../../store/favorite-images-context";
 import Dropdown from "../UI/Dropdown";
 import { vars } from "../../models/constants";
+import { Option } from "../../models/types";
 
-const Filter = (props) => {
-  //global state
+type Props = {
+  onSelected: (input: string) => void
+}
+
+const Filter = ({ onSelected }: Props) => {
+  //global state 
   const favImgContext = useContext(FavoriteImagesContext);
 
   // sort all saved images by breed, pick unique values and add them to the filter dropdown options
-  const breeds = favImgContext.favoriteImages.map((item) => {
+  const breeds = favImgContext?.favoriteImages.map((item) => {
     return item.breed;
   });
   const uniqueBreeds = [...new Set(breeds)];
   uniqueBreeds.unshift(vars.allBreeds);
-  const options = uniqueBreeds.map((breedName) => {
-    return { label: breedName, value: breedName };
+  const options: Option[] = uniqueBreeds.map(breedName => {
+    let option: Option = { value: breedName || '', label: breedName || '' };
+    return option;
   });
 
   //component state
   const [value, setValue] = useState(vars.allBreeds);
 
-  const handleChange = (event) => {
+  const handleChange: React.ChangeEventHandler<HTMLSelectElement> = (event) => {
     setValue(event.target.value);
-    props.onSelected(event.target.value);
+    onSelected(event.target?.value);
   };
 
   return (
     <>
       {uniqueBreeds.length > 1 && (
         <Dropdown
-          label={options.label}
           value={value}
           options={options}
           onChange={handleChange}

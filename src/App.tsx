@@ -8,9 +8,7 @@ function App() {
     <FavoriteImagesProvider>
       <div className={styles.container}>
         <div className={styles["header-wrap"]}> 
-          
             <Header />
-          
         </div>
         <div className={styles["content-wrap"]}> 
           <main className={styles.content}>

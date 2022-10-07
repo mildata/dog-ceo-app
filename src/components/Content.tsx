@@ -4,10 +4,9 @@ import BreedsListPage from "../pages/BreedsListPage";
 import FavoritePicturesPage from "../pages/FavoritePicturesPage";
 import BreedPictures from "./breed-pictures/BreedPictures";
 import BreedsList from "./breeds/BreedsList";
-import styles from "./Content.module.scss";
 import FavoritePictures from "./favorite-pictures/FavoritePictures";
 
-const Content = (props) => {
+const Content = () => {
   return (
     <>
       <Routes>
@@ -35,7 +34,7 @@ const Content = (props) => {
             </FavoritePicturesPage>
           }
         />
-        <Route path="*"/>
+        <Route path="*" />
       </Routes>
     </>
   );

@@ -3,7 +3,11 @@ import { Link } from "react-router-dom";
 import { fetchRandomBreedImage } from "../../services/services";
 import styles from "./Breed.module.scss";
 
-const Breed = ({ breed }) => {
+type Props = {
+  breed: string
+};
+
+const Breed = ({ breed }: Props) => {
   const [imgUrl, setImgUrl] = useState(null);
 
   // fetch a random image of a breed from an API

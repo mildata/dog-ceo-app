@@ -12,26 +12,15 @@ const BreedPictures = () => {
   //global state management
   const favImgContext = useContext(FavoriteImagesContext);
 
-  // add image to favorites
-  const addFavImgHandler = (url) => {
-    favImgContext.addImage({
-      url: url,
-      breed: breed,
-    });
-  };
-
-  //remove image from favorites
-  const removeFavImgHandler = (url) => {
-    favImgContext.removeImage({
-      url: url,
-    });
-  };
+  const imageHandler = (url: string, type: string) => {
+    favImgContext?.handleImage({ url: url, breed: breed, }, type);
+  }
 
   //internal state management
   const [imgUrls, setImgUrls] = useState([]);
 
   // initially set to undefined, to help UI distinguish between initial and updated state
-  const [breedFound, setBreedFound] = useState(undefined);
+  const [breedFound, setBreedFound] = useState<undefined | boolean>(undefined);
 
   const backToAllBreedsLink = (
     <Link to="/">Check out the breed list to find all breeds</Link>
@@ -39,6 +28,7 @@ const BreedPictures = () => {
 
   // fetch breed images from an API
   useEffect(() => {
+
     const getBreedImages = async () => {
       const response = await fetchBreedImages(breed);
       if (response) {
@@ -49,7 +39,8 @@ const BreedPictures = () => {
       }
     };
     getBreedImages();
-  }, []);
+
+  });
 
 
   return (
@@ -75,7 +66,7 @@ const BreedPictures = () => {
             )}
             {imgUrls.map((url, i) => {
               const favorited =
-                favImgContext.favoriteImages.findIndex(
+                favImgContext?.favoriteImages.findIndex(
                   (el) => el.url === url
                 ) === -1
                   ? false
@@ -84,8 +75,7 @@ const BreedPictures = () => {
                 <div key={url} className={styles.content}>
                   <BreedPicture
                     url={url}
-                    add={addFavImgHandler}
-                    remove={removeFavImgHandler}
+                    handleImage={imageHandler}
                     showRemoveButton={favorited}
                   />
                 </div>
