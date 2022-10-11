@@ -1,0 +1,1 @@
+export default function FavoritePicturesPage(props: { children: JSX.Element }) { return props.children };

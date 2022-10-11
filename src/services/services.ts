@@ -13,8 +13,8 @@ export async function fetchAllBreeds() {
   }
 }
 
-export async function fetchBreedImages(breedName) {
-  const url = URLS.breedImages.replace("name", breedName);
+export async function fetchBreedImages(breedName:string | undefined) {
+  const url = URLS.breedImages.replace("name", breedName || '');
   try {
     const response = await fetch(url);
     if (!response.ok) {
@@ -27,7 +27,7 @@ export async function fetchBreedImages(breedName) {
   }
 }
 
-export async function fetchRandomBreedImage(breedName) {
+export async function fetchRandomBreedImage(breedName:string) {
   const url = URLS.randomImage.replace("name", breedName);
   try {
     const response = await fetch(url);
