@@ -1,0 +1,1 @@
+export default function BreedPicturesPage(props: { children: JSX.Element }) { return props.children };

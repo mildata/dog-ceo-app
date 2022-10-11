@@ -13,8 +13,22 @@ export async function fetchAllBreeds() {
   }
 }
 
-export async function fetchBreedImages(breedName) {
-  const url = URLS.breedImages.replace("name", breedName);
+export async function fetchBreedImages(breedName:string | undefined) {
+  const url = URLS.breedImages.replace("name", breedName || '');
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP error: ${response.status}`);
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(`An error has occured in fetchBreedImages service: ${error}`);
+  }
+}
+
+export async function fetchRandomBreedImage(breedName:string) {
+  const url = URLS.randomImage.replace("name", breedName);
   try {
     const response = await fetch(url);
     if (!response.ok) {
